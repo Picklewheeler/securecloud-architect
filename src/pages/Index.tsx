@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   ShieldCheck, 
@@ -18,31 +17,74 @@ import { Separator } from '@/components/ui/separator';
 import NavBar from '@/components/NavBar';
 import ArchitectureDiagram from '@/components/ArchitectureDiagram';
 import SecurityFeature from '@/components/SecurityFeature';
+import AnimatedSection from '@/components/AnimatedSection';
+import { Helmet } from 'react-helmet-async';
 
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Secure Cloud Architecture for Payment Processing | PCI DSS Compliant</title>
+        <meta 
+          name="description" 
+          content="A robust AWS-based solution for multi-tenant applications that minimizes PCI scope while maintaining security and scalability."
+        />
+        <meta name="keywords" content="PCI DSS, AWS architecture, secure payment processing, cloud security, multi-tenant" />
+        <link rel="canonical" href="https://yourdomain.com/" />
+        
+        {/* Open Graph / Social Media */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Secure Cloud Architecture for Payment Processing | PCI DSS Compliant" />
+        <meta property="og:description" content="A robust AWS-based solution for multi-tenant applications that minimizes PCI scope while maintaining security and scalability." />
+        <meta property="og:url" content="https://yourdomain.com/" />
+        <meta property="og:image" content="/og-image.png" />
+        
+        {/* Structured Data for Organization and Service */}
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "SecureCloud Architect",
+            "url": "https://yourdomain.com",
+            "logo": "https://yourdomain.com/logo.png",
+            "sameAs": [
+              "https://twitter.com/securecloudarch",
+              "https://www.linkedin.com/company/securecloudarchitect"
+            ],
+            "service": {
+              "@type": "Service",
+              "name": "PCI DSS Compliant Architecture",
+              "description": "Secure cloud architecture for payment processing with PCI DSS compliance",
+              "provider": {
+                "@type": "Organization",
+                "name": "SecureCloud Architect"
+              }
+            }
+          }
+        `}</script>
+      </Helmet>
+      
       <NavBar />
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-b from-accent to-background">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="flex-1 space-y-4">
-              <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary mb-4 animate-fade-in">
+            <AnimatedSection animation="fade-up" className="flex-1 space-y-4">
+              <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary mb-4">
                 PCI DSS Compliant Architecture
               </div>
               
-              <h1 className="text-3xl md:text-5xl font-bold tracking-tight animate-slide-up" style={{animationDelay: '100ms'}}>
+              <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
                 Secure Cloud Architecture for Payment Processing
               </h1>
               
-              <p className="text-lg text-muted-foreground md:text-xl md:max-w-xl animate-slide-up" style={{animationDelay: '200ms'}}>
+              <p className="text-lg text-muted-foreground md:text-xl md:max-w-xl">
                 A robust AWS-based solution for multi-tenant applications that minimizes PCI scope while maintaining security and scalability.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-3 pt-4 animate-slide-up" style={{animationDelay: '300ms'}}>
-                <Button asChild size="lg">
+              <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                <Button asChild size="lg" className="animate-pulse-light">
                   <a href="#architecture">
                     Explore Architecture <ChevronRight className="ml-2 h-4 w-4" />
                   </a>
@@ -50,10 +92,13 @@ const Index = () => {
                 <Button variant="outline" size="lg" asChild>
                   <Link to="/implementation">Implementation Plan</Link>
                 </Button>
+                <Button variant="default" size="lg" asChild className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary">
+                  <Link to="/purchase">Purchase Plans</Link>
+                </Button>
               </div>
-            </div>
+            </AnimatedSection>
             
-            <div className="flex-1 w-full max-w-md mx-auto md:max-w-none animate-zoom-in">
+            <AnimatedSection animation="zoom-in" delay={300} className="flex-1 w-full max-w-md mx-auto md:max-w-none">
               <div className="p-1 bg-gradient-to-br from-primary/20 to-transparent rounded-2xl">
                 <div className="glass-panel rounded-xl overflow-hidden shadow-xl">
                   <div className="p-6 md:p-8">
@@ -96,7 +141,7 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -104,64 +149,64 @@ const Index = () => {
       {/* Architecture Overview Section */}
       <section id="architecture" className="py-16 md:py-24">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center text-center mb-12">
+          <AnimatedSection animation="fade-up" className="flex flex-col items-center text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight mb-4">Architecture Overview</h2>
             <p className="text-muted-foreground md:text-lg max-w-3xl">
               A comprehensive design that balances security, compliance, and scalability for your multi-tenant payment processing application.
             </p>
-          </div>
+          </AnimatedSection>
           
-          <div className="mb-16">
+          <AnimatedSection animation="fade-in" className="mb-16">
             <ArchitectureDiagram />
-          </div>
+          </AnimatedSection>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <SecurityFeature
               icon={Network}
               title="Network Layout"
               description="Segmented VPC with public and private subnets, strict security groups, and controlled traffic flow to minimize attack surface."
-              className="animate-fade-in"
-              style={{animationDelay: '100ms'}}
+              delay={100}
+              animation="fade-up"
             />
             
             <SecurityFeature
               icon={Server}
               title="Serverless Architecture"
               description="Leverages AWS Lambda, API Gateway, and DynamoDB to reduce management overhead and improve scalability."
-              className="animate-fade-in"
-              style={{animationDelay: '200ms'}}
+              delay={200}
+              animation="fade-up"
             />
             
             <SecurityFeature
               icon={CreditCard}
               title="Payment Processing"
               description="Isolated payment services using tokenization with third-party processors to minimize PCI DSS scope."
-              className="animate-fade-in"
-              style={{animationDelay: '300ms'}}
+              delay={300}
+              animation="fade-up"
             />
             
             <SecurityFeature
               icon={Database}
               title="Data Storage"
               description="Encrypted databases with separate storage for sensitive and non-sensitive data, using KMS for key management."
-              className="animate-fade-in"
-              style={{animationDelay: '400ms'}}
+              delay={400}
+              animation="fade-up"
             />
             
             <SecurityFeature
               icon={Lock}
               title="Security Controls"
               description="WAF, GuardDuty, and Security Hub integration for continuous monitoring and threat detection."
-              className="animate-fade-in"
-              style={{animationDelay: '500ms'}}
+              delay={500}
+              animation="fade-up"
             />
             
             <SecurityFeature
               icon={Users}
               title="Multi-Tenant Support"
               description="Tenant isolation at multiple levels including data, computing resources, and APIs for secure customer separation."
-              className="animate-fade-in"
-              style={{animationDelay: '600ms'}}
+              delay={600}
+              animation="fade-up"
             />
           </div>
         </div>
@@ -338,7 +383,7 @@ const Index = () => {
       <section className="py-16 md:py-24">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="flex-1 space-y-4">
+            <AnimatedSection animation="slide-up" className="flex-1 space-y-4">
               <h2 className="text-3xl font-bold tracking-tight">Ready to Implement This Architecture?</h2>
               <p className="text-muted-foreground md:text-lg">
                 Our detailed implementation plan breaks down the steps needed to build this secure payment processing platform.
@@ -350,10 +395,13 @@ const Index = () => {
                 <Button variant="outline" size="lg" asChild>
                   <Link to="/security">Security Details</Link>
                 </Button>
+                <Button variant="default" size="lg" asChild className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary animate-pulse-light">
+                  <Link to="/purchase">View Pricing</Link>
+                </Button>
               </div>
-            </div>
+            </AnimatedSection>
             
-            <div className="flex-1 glass-panel rounded-xl overflow-hidden shadow-lg border border-border/50">
+            <AnimatedSection animation="slide-up" delay={200} className="flex-1 glass-panel rounded-xl overflow-hidden shadow-lg border border-border/50">
               <div className="p-6 md:p-8">
                 <h3 className="text-xl font-semibold mb-4">Implementation Overview</h3>
                 <ul className="space-y-3">
@@ -404,7 +452,7 @@ const Index = () => {
                   </li>
                 </ul>
               </div>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
