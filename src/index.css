@@ -129,4 +129,56 @@
   .fade-mask-t {
     mask-image: linear-gradient(to top, black 85%, transparent 100%);
   }
+  
+  /* Custom classes for the Huly-style landing page */
+  .glow-effect {
+    @apply relative;
+  }
+  
+  .glow-effect::before {
+    content: "";
+    @apply absolute top-0 bottom-0 w-[1px] bg-blue-400 blur-[6px] right-[10%] opacity-60;
+    box-shadow: 0 0 40px 20px rgba(59, 130, 246, 0.5);
+    z-index: 1;
+  }
+  
+  .hero-gradient {
+    background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+  }
+  
+  .hero-glow {
+    position: absolute;
+    top: 50%;
+    right: 15%;
+    width: 2px;
+    height: 70%;
+    background: rgba(59, 130, 246, 0.8);
+    box-shadow: 0 0 60px 30px rgba(59, 130, 246, 0.5);
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+  
+  .app-screenshot {
+    @apply rounded-lg shadow-2xl border border-slate-700/50 overflow-hidden;
+    box-shadow: 0 0 30px 5px rgba(59, 130, 246, 0.15);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  }
+  
+  .gradient-button {
+    @apply relative overflow-hidden;
+    background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+  }
+  
+  .gradient-button::after {
+    content: "";
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%);
+  }
+  
+  .gradient-button:hover::after {
+    @apply opacity-100;
+  }
 }

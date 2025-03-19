@@ -11,6 +11,7 @@ import Implementation from "./pages/Implementation";
 import Security from "./pages/Security";
 import Purchase from "./pages/Purchase";
 import NotFound from "./pages/NotFound";
+import HulyStyleLanding from "./pages/HulyStyleLanding";
 
 const queryClient = new QueryClient();
 
@@ -23,7 +24,8 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Index />} />
+              <Route path="/" element={<HulyStyleLanding />} />
+              <Route path="/classic" element={<Index />} />
               <Route path="/implementation" element={<Implementation />} />
               <Route path="/security" element={<Security />} />
               <Route path="/purchase" element={<Purchase />} />
