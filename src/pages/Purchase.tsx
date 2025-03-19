@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import NavBar from '@/components/NavBar';
 import { Button } from "@/components/ui/button";
@@ -202,7 +203,3 @@ const Purchase = () => {
 };
 
 export default Purchase;
-
-function cn(...inputs: any[]) {
-  return inputs.filter(Boolean).join(' ');
-}
