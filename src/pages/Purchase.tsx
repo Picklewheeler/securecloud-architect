@@ -140,9 +140,12 @@ const Purchase = () => {
                   <CardContent className="flex-grow">
                     <ul className="space-y-2">
                       {plan.features.map((feature, i) => (
-                        <li key={i} className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mr-2" />
-                          <span className="text-sm">{feature}</span>
+                        <li key={i} className="flex items-start group relative">
+                          <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mr-2 group-hover:text-primary/100 transition-colors" />
+                          <span className="text-sm opacity-75 group-hover:opacity-100 transition-opacity">
+                            {feature}
+                          </span>
+                          <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 rounded transition-opacity -z-10"></div>
                         </li>
                       ))}
                     </ul>
@@ -171,17 +174,17 @@ const Purchase = () => {
                 <h3 className="text-xl font-semibold">All Plans Include</h3>
               </div>
               <div className="grid md:grid-cols-3 gap-4 text-left">
-                <div className="flex items-start">
-                  <Server className="h-5 w-5 text-primary mr-2 mt-0.5" />
-                  <span className="text-sm">AWS architecture diagrams</span>
+                <div className="flex items-start group relative p-2 rounded transition-colors hover:bg-primary/5">
+                  <Server className="h-5 w-5 text-primary mr-2 mt-0.5 group-hover:text-primary/100 transition-colors" />
+                  <span className="text-sm opacity-75 group-hover:opacity-100 transition-opacity">AWS architecture diagrams</span>
                 </div>
-                <div className="flex items-start">
-                  <ShieldCheck className="h-5 w-5 text-primary mr-2 mt-0.5" />
-                  <span className="text-sm">PCI DSS compliance guidance</span>
+                <div className="flex items-start group relative p-2 rounded transition-colors hover:bg-primary/5">
+                  <ShieldCheck className="h-5 w-5 text-primary mr-2 mt-0.5 group-hover:text-primary/100 transition-colors" />
+                  <span className="text-sm opacity-75 group-hover:opacity-100 transition-opacity">PCI DSS compliance guidance</span>
                 </div>
-                <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-primary mr-2 mt-0.5" />
-                  <span className="text-sm">Implementation documentation</span>
+                <div className="flex items-start group relative p-2 rounded transition-colors hover:bg-primary/5">
+                  <CheckCircle className="h-5 w-5 text-primary mr-2 mt-0.5 group-hover:text-primary/100 transition-colors" />
+                  <span className="text-sm opacity-75 group-hover:opacity-100 transition-opacity">Implementation documentation</span>
                 </div>
               </div>
             </div>
