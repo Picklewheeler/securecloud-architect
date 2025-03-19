@@ -1,11 +1,14 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ShieldCheck, Menu, X } from "lucide-react";
+import { ShieldCheck, Menu, X, Moon, Sun } from "lucide-react";
 import { Link } from 'react-router-dom';
+import { useTheme } from './ThemeProvider';
+import { Switch } from '@/components/ui/switch';
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -30,18 +33,39 @@ const NavBar = () => {
           <Link to="/security" className="text-foreground/80 hover:text-primary transition-colors">
             Security
           </Link>
+          <div className="flex items-center gap-2 ml-2">
+            <Sun className="h-4 w-4 text-muted-foreground" />
+            <Switch
+              checked={theme === "dark"}
+              onCheckedChange={toggleTheme}
+              aria-label="Toggle dark mode"
+            />
+            <Moon className="h-4 w-4 text-muted-foreground" />
+          </div>
           <Button size="sm" variant="outline">Contact Us</Button>
         </div>
 
         {/* Mobile Navigation Button */}
-        <button 
-          onClick={toggleMenu} 
-          className="md:hidden text-foreground p-2 rounded-md hover:bg-accent transition-colors"
-          aria-expanded={isMenuOpen}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        <div className="md:hidden flex items-center gap-4">
+          <div className="flex items-center gap-1">
+            <Sun className="h-3 w-3 text-muted-foreground" />
+            <Switch
+              checked={theme === "dark"}
+              onCheckedChange={toggleTheme}
+              aria-label="Toggle dark mode"
+              className="scale-75"
+            />
+            <Moon className="h-3 w-3 text-muted-foreground" />
+          </div>
+          <button 
+            onClick={toggleMenu} 
+            className="text-foreground p-2 rounded-md hover:bg-accent transition-colors"
+            aria-expanded={isMenuOpen}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Navigation Menu */}

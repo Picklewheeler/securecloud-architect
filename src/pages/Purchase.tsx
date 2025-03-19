@@ -1,12 +1,13 @@
-
 import React, { useState } from 'react';
 import NavBar from '@/components/NavBar';
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { ShieldCheck, Server, CheckCircle } from 'lucide-react';
 import PaymentModal from '@/components/payment/PaymentModal';
 import AnimatedSection from '@/components/AnimatedSection';
 import { Helmet } from 'react-helmet-async';
+import BackButton from '@/components/BackButton';
+import { cn } from '@/lib/utils';
 
 const pricingOptions = [
   {
@@ -103,6 +104,10 @@ const Purchase = () => {
       
       <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-b from-accent to-background">
         <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+          <div className="mb-6 flex items-center">
+            <BackButton />
+          </div>
+          
           <AnimatedSection animation="fade-up" className="text-center max-w-3xl mx-auto mb-16">
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
               Choose Your Architecture Package
